@@ -2,7 +2,7 @@
 
 export default function Footer() {
     return (
-        <footer className="relative z-30 w-full py-12 px-6 border-t border-white/5 bg-white/[0.02] backdrop-blur-xl">
+        <footer id="contact" className="relative z-30 w-full py-12 px-6 border-t border-white/5 bg-white/[0.02] backdrop-blur-xl">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
                 <div className="flex flex-col gap-2">
                     <h3 className="text-xl font-bold bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
@@ -15,11 +15,11 @@ export default function Footer() {
 
                 <div className="flex gap-8 text-sm text-gray-400">
                     <a href="#" className="hover:text-white transition-colors">Twitter</a>
-                    <a href="#" className="hover:text-white transition-colors">GitHub</a>
-                    <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
+                    <a href="https://github.com/sushil3050-ctrl" className="hover:text-white transition-colors">GitHub</a>
+                    <a href="www.linkedin.com/in/getsushilkamble" className="hover:text-white transition-colors">LinkedIn</a>
                 </div>
 
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-gray-600 cursor-none" >
                     © {new Date().getFullYear()} Sush!l RK. All rights reserved. <br /> <hr /> <br />
                     Made with ❤️ by Sush!l RK
                 </div>

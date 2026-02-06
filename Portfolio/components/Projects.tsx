@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { ParticleCard, GlobalSpotlight } from './MagicBento';
+import FlowingMenuSection from './FlowingMenuSection';
 
 export default function Projects() {
     const gridRef = useRef<HTMLDivElement>(null);
@@ -36,9 +37,9 @@ export default function Projects() {
                 spotlightRadius={540}
                 glowColor="132, 0, 255"
             />
-            <section className="relative z-20 bg-[#121212] py-32 px-6 md:px-12 magic-bento-section">
-                <div className="max-w-7xl mx-auto">
-                    <h2 className="text-4xl font-bold text-white mb-16 tracking-tight">Selected Work</h2>
+            <section id="projects" className="relative z-20 bg-[#121212] py-32 px-6 md:px-12 magic-bento-section">
+                <div className="max-w-7xl mx-auto ">
+                    <h2 className="text-4xl font-bold text-white mb-16 tracking-tight ">Selected Work</h2>
 
                     <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {projects.map((project, index) => (
@@ -73,6 +74,8 @@ export default function Projects() {
                     </div>
                 </div>
             </section>
+
+            <FlowingMenuSection />
         </>
     );
 }

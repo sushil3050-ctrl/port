@@ -8,11 +8,15 @@ interface ScrollyCanvasProps {
 }
 
 export default function ScrollyCanvas({ children }: ScrollyCanvasProps) {
+    const containerRef = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [images, setImages] = useState<HTMLImageElement[]>([]);
     const [isLoaded, setIsLoaded] = useState(false);
 
-    const { scrollYProgress } = useScroll();
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end end"]
+    });
     const frameIndex = useTransform(scrollYProgress, [0, 1], [0, 74]);
 
     useEffect(() => {
@@ -30,6 +34,9 @@ export default function ScrollyCanvas({ children }: ScrollyCanvasProps) {
             }
             setImages(loadedImages);
             setIsLoaded(true);
+            // Mark the container as having the sequence loaded so other components
+            // (e.g., Navbar) can wait for this before transitioning.
+            if (containerRef.current) containerRef.current.dataset.sequenceLoaded = 'true';
         };
 
         loadImages();
@@ -79,7 +86,7 @@ export default function ScrollyCanvas({ children }: ScrollyCanvasProps) {
     }, [images]);
 
     return (
-        <div className="h-[500vh] w-full relative">
+        <div ref={containerRef} className="h-[500vh] w-full relative scrolly-canvas-container">
             <div className="sticky top-0 h-screen w-full overflow-hidden">
                 <canvas
                     ref={canvasRef}
