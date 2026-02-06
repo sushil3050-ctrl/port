@@ -31,7 +31,7 @@ export default function Overlay() {
                 viewport={{ amount: 0.5 }}
             >
                 <h2 className="text-5xl md:text-7xl font-bold max-w-4xl leading-tight text-white">
-                    I build <br />
+                    I Build <br />
                     <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">digital experiences.</span>
                 </h2>
             </motion.div>
