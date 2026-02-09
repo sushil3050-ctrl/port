@@ -5,9 +5,9 @@ import { gsap } from 'gsap';
 import './FlowingMenu.css';
 
 interface MenuItemData {
-  link: string;
   text: string;
   image: string;
+  onClick?: (e: React.MouseEvent) => void;
 }
 
 interface MenuItemProps extends MenuItemData {
@@ -43,9 +43,9 @@ const distMetric = (x: number, y: number, x2: number, y2: number): number => {
 };
 
 const MenuItem = ({
-  link,
   text,
   image,
+  onClick,
   speed,
   textColor,
   marqueeBgColor,
@@ -58,7 +58,7 @@ const MenuItem = ({
   const animationRef = useRef<gsap.core.Tween | null>(null);
   const [repetitions, setRepetitions] = useState(4);
 
-  const handleMouseEnter = (ev: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleMouseEnter = (ev: React.MouseEvent<HTMLDivElement>) => {
     if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current) return;
     const rect = itemRef.current.getBoundingClientRect();
     const x = ev.clientX - rect.left;
@@ -72,7 +72,7 @@ const MenuItem = ({
       .to([marqueeRef.current, marqueeInnerRef.current], { y: '0%' }, 0);
   };
 
-  const handleMouseLeave = (ev: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleMouseLeave = (ev: React.MouseEvent<HTMLDivElement>) => {
     if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current) return;
     const rect = itemRef.current.getBoundingClientRect();
     const x = ev.clientX - rect.left;
@@ -138,15 +138,15 @@ const MenuItem = ({
 
   return (
     <div className="menu__item" ref={itemRef} style={{ borderColor }}>
-      <a
-        className="menu__item-link"
-        href={link}
+      <div
+        className="menu__item-link cursor-pointer"
+        onClick={onClick}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         style={{ color: textColor }}
       >
         {text}
-      </a>
+      </div>
       <div className="marquee" ref={marqueeRef} style={{ backgroundColor: marqueeBgColor }}>
         <div className="marquee__inner-wrap">
           <div className="marquee__inner" ref={marqueeInnerRef} aria-hidden="true">

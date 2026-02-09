@@ -4,7 +4,6 @@ import GradientBlinds from './GradientBlinds';
 import FlowingMenu from './FlowingMenu';
 
 interface MenuItemData {
-  link: string;
   text: string;
   image: string;
 }
@@ -13,30 +12,49 @@ interface FlowingMenuSectionProps {
   items?: MenuItemData[];
 }
 
-export default function FlowingMenuSection({ 
+export default function FlowingMenuSection({
   items = [
-    { link: '#', text: '↓ Skills ↓', image: 'https://picsum.photos/100/100?random=FRRACRKRsw2s' },
-    { link: '#', text: 'python [Data Analytics]', image: 'https://images.weserv.nl/?url=logo.svgcdn.com/logos/python.svg&w=600&h=400&fit=contain&bg=000000' },
-    { link: '#', text: 'Java', image: 'https://images.weserv.nl/?url=logo.svgcdn.com/logos/java.svg&w=600&h=400&fit=contain&bg=000000' },
-    { link: '#', text: 'c++', image: 'https://images.weserv.nl/?url=favpng.com/png_view/letter-c-c-programming-language-icon-png/1APweGpH.png&w=600&h=400&fit=contain&bg=000000' },
-    { link: '#', text: 'c', image: 'https://images.weserv.nl/?url=logo.svgcdn.com/logos/c.svg&w=600&h=400&fit=contain&bg=000000' },
-    { link: '#', text: 'Linux', image: 'https://images.weserv.nl/?url=www.pngmart.com/files/15/Linux-Tux-Logo-PNG.png&w=600&h=400&fit=contain&bg=000000' }
+    { text: '↓ Skills ↓', image: 'https://picsum.photos/100/100?random=FRRACRKRsw2s' },
+    { text: 'python [Data Analytics]', image: 'https://images.weserv.nl/?url=logo.svgcdn.com/logos/python.svg&w=600&h=400&fit=contain&bg=000000' },
+    { text: 'Java', image: 'https://images.weserv.nl/?url=logo.svgcdn.com/logos/java.svg&w=600&h=400&fit=contain&bg=000000' },
+    { text: 'c++', image: 'https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/3/37/C%2B%2B_logo.png&w=600&h=400&fit=contain&bg=000000' },
+    { text: 'c', image: 'https://images.weserv.nl/?url=logo.svgcdn.com/logos/c.svg&w=600&h=400&fit=contain&bg=000000' },
+    { text: 'Linux', image: 'https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/3/35/Linux_mascot_tux.png&w=600&h=400&fit=contain&bg=000000' }
   ]
 }: FlowingMenuSectionProps) {
+
+  // Map items to include a safe onClick that does nothing
+  const menuItems = items.map(item => ({
+    ...item,
+    onClick: (e: React.MouseEvent) => {
+      e.preventDefault(); // prevents any default action
+    }
+  }));
+
   return (
-    <section className="relative w-full" style={{ height: '650px', position: 'relative', background: '#121212', overflow: 'hidden' }}>
-      {/* Gradient Blinds Background - Full section (behind the FlowingMenu) */}
-      <div style={{ 
-        position: 'absolute', 
-        top: 0, 
-        left: 0, 
-        width: '100%', 
-        height: '100%', 
-        zIndex: 1,
-        display: 'block',
-        overflow: 'hidden',
-        pointerEvents: 'none'
-      }}>
+    <section
+      className="relative w-full"
+      style={{
+        height: '650px',
+        position: 'relative',
+        background: '#121212',
+        overflow: 'hidden'
+      }}
+    >
+      {/* Gradient Blinds Background */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 1,
+          display: 'block',
+          overflow: 'hidden',
+          pointerEvents: 'none'
+        }}
+      >
         <GradientBlinds
           gradientColors={['#FF9FFC', '#5227FF']}
           angle={147}
@@ -53,7 +71,7 @@ export default function FlowingMenuSection({
         />
       </div>
 
-      {/* Flowing Menu Container - Overlay with its own background */}
+      {/* Flowing Menu Container */}
       <div
         style={{
           position: 'absolute',
@@ -69,7 +87,7 @@ export default function FlowingMenuSection({
           pointerEvents: 'auto'
         }}
       >
-        {/* Flowing Menu Wrapper - Centered container with dark background */}
+        {/* Flowing Menu Wrapper */}
         <div
           style={{
             width: '100%',
@@ -86,8 +104,8 @@ export default function FlowingMenuSection({
             position: 'relative'
           }}
         >
-          <FlowingMenu 
-            items={items}
+          <FlowingMenu
+            items={menuItems} // pass items with onClick that does nothing
             speed={15}
             textColor="#ffffff"
             bgColor="transparent"
