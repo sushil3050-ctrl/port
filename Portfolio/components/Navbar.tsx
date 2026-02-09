@@ -80,80 +80,19 @@ export default function Navbar() {
           transformStyle: "preserve-3d",
         }}
         /* ADJUST NAVBAR DIMENSIONS HERE: w-[width], px-[horizontal padding], py-[vertical padding] */
-        className="pointer-events-auto relative flex items-center gap-4 md:gap-7 px-2 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl transition-colors hover:border-white/20 w-full max-w-[100%]"
+        className="pointer-events-auto relative flex items-center justify-center gap-2 sm:gap-4 px-2 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl transition-colors hover:border-white/20 w-fit max-w-[95%] mx-auto"
       >
         {/* 3D Glass Layering */}
-        <div style={{ transform: "translateZ(10px)" }} className="flex gap-4 md:gap-30 items-center">
-
-          {/* ADJUST NAME BUTTON DIMENSIONS HERE: px-[padding], text-[size] */}
-
-
-
-
-
-
-          {/* <div
-                        style={{ transform: "translateZ(20px)" }}
-                        className="
-                        px-70 py-1 rounded-full
-                        bg-gradient-to-r from-[#0b0000] via-[#5a0000] to-[#121212]
-                        whitespace-pre
-
-                        text-xl font-bold text-white
-                        font-[Cinzel]
-                        tracking-wider
-                        shadow-[0_10px_40px_rgba(255,0,0,0.5)]
-                        transition-transform transform
-                        hover:scale-105 hover:shadow-[0_15px_50px_rgba(255,0,0,0.7)]
-                        active:scale-95
-                        border-b-4 border border-x-red-700 border-t-red-700 border-b-red-900
-                        text-shadow-[2px_2px_6px_rgba(255,0,0,0.7)]
-                        text-left
-                        cursor-default
-                        flex items-center justify-start pl-6
-                        ">
-                            🗝  The Sush!l RK  /  Portfolio     
-                        </div> */}
-
-
-
-
-
-          {/* <div
-  style={{ transform: "translateZ(20px)" }}
-  className="
-    px-10 py-2 rounded-3xl
-    bg-gradient-to-r from-[#0b0000] via-[#5a0000] to-[#121212]
-    whitespace-pre
-
-    text-xl font-bold text-white
-    font-[Cinzel]
-    tracking-wider
-    shadow-[0_10px_40px_rgba(255,0,0,0.5)]
-    transition-transform transform
-    hover:scale-105 hover:shadow-[0_15px_50px_rgba(255,0,0,0.7)]
-    active:scale-95
-    border-b-4 border border-x-red-700 border-t-red-700 border-b-red-900
-    text-shadow-[2px_2px_6px_rgba(255,0,0,0.7)]
-    text-left
-    cursor-default
-    flex items-center justify-start pl-6
-  "
->
-  🗝  The Sush!l RK  /  Portfolio     
-</div> */}
-
-
-
+        <div style={{ transform: "translateZ(10px)" }} className="flex gap-2 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24 items-center">
 
           <div
             style={{ transform: "translateZ(20px)" }}
             className={isPastScrollyCanvas ? `
-    px-4 md:px-10 py-2 rounded-3xl
+    px-3 sm:px-4 md:px-8 py-2 rounded-2xl sm:rounded-3xl
     bg-gradient-to-r from-[#0b0000] via-[#5a0000] to-[#121212]
     whitespace-pre
 
-    text-lg md:text-xl font-bold text-white
+    text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-white
     font-[Cinzel]
     tracking-wider
     shadow-[0_10px_40px_rgba(255,0,0,0.5)]
@@ -163,10 +102,10 @@ export default function Navbar() {
     border-b-4 border border-x-red-700 border-t-red-700 border-b-red-900
     text-left
     cursor-default
-    flex items-center justify-start pl-4 md:pl-6
+    flex items-center justify-start pl-3 sm:pl-4 md:pl-6
   ` : `
     relative
-    px-4 md:px-10 py-2 rounded-3xl
+    px-3 sm:px-4 md:px-8 py-2 rounded-2xl sm:rounded-3xl
     whitespace-pre
 
     bg-white/5 backdrop-blur-2xl
@@ -179,14 +118,14 @@ export default function Navbar() {
           >
             <span
               className={isPastScrollyCanvas ? `
-      text-sm md:text-xl font-bold text-white
+      text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-bold text-white
       font-[Cinzel]
       tracking-wider
       text-left
       block
     ` : `
       font-['Oswald'] uppercase
-      text-[10px] sm:text-lg md:text-xl
+      text-[8px] sm:text-xs md:text-base lg:text-lg xl:text-xl
       tracking-wider
       text-white
       drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]
@@ -198,24 +137,21 @@ export default function Navbar() {
             </span>
           </div>
 
-
-
-
-
-
-          {["About", "Projects", "Contact"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="text-xs md:text-sm font-medium text-gray-300 transition-colors hover:text-white"
-            >
-              {item}
-            </a>
-          ))}
+          <div className="flex gap-2 sm:gap-4 md:gap-6 items-center">
+            {["About", "Projects", "Contact"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="text-[9px] sm:text-xs md:text-sm font-medium text-gray-300 transition-colors hover:text-white"
+              >
+                {item}
+              </a>
+            ))}
+          </div>
 
           <button
-            onClick={() => window.open("www.linkedin.com/in/getsushilkamble Vanity URL name", "_blank")}
-            className="px-2 md:px-3 py-1 rounded-full bg-white text-black text-[10px] md:text-sm font-semibold transition-transform hover:scale-105 active:scale-95 whitespace-nowrap"
+            onClick={() => window.open("www.linkedin.com/in/getsushilkamble", "_blank")}
+            className="px-2 sm:px-3 py-1 rounded-full bg-white text-black text-[9px] sm:text-xs md:text-sm font-semibold transition-transform hover:scale-105 active:scale-95 whitespace-nowrap"
           >
             Let's Connect
           </button>
