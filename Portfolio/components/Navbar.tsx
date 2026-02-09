@@ -80,10 +80,10 @@ export default function Navbar() {
           transformStyle: "preserve-3d",
         }}
         /* ADJUST NAVBAR DIMENSIONS HERE: w-[width], px-[horizontal padding], py-[vertical padding] */
-        className="pointer-events-auto relative flex items-left gap-7 px-2 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl transition-colors hover:border-white/20 w-100% max-w-[100%]"
+        className="pointer-events-auto relative flex items-center gap-4 md:gap-7 px-2 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl transition-colors hover:border-white/20 w-full max-w-[100%]"
       >
         {/* 3D Glass Layering */}
-        <div style={{ transform: "translateZ(10px)" }} className="flex gap-30 items-center  ">
+        <div style={{ transform: "translateZ(10px)" }} className="flex gap-4 md:gap-30 items-center">
 
           {/* ADJUST NAME BUTTON DIMENSIONS HERE: px-[padding], text-[size] */}
 
@@ -149,11 +149,11 @@ export default function Navbar() {
           <div
             style={{ transform: "translateZ(20px)" }}
             className={isPastScrollyCanvas ? `
-    px-10 py-2 rounded-3xl
+    px-4 md:px-10 py-2 rounded-3xl
     bg-gradient-to-r from-[#0b0000] via-[#5a0000] to-[#121212]
     whitespace-pre
 
-    text-xl font-bold text-white
+    text-lg md:text-xl font-bold text-white
     font-[Cinzel]
     tracking-wider
     shadow-[0_10px_40px_rgba(255,0,0,0.5)]
@@ -163,10 +163,10 @@ export default function Navbar() {
     border-b-4 border border-x-red-700 border-t-red-700 border-b-red-900
     text-left
     cursor-default
-    flex items-center justify-start pl-6
+    flex items-center justify-start pl-4 md:pl-6
   ` : `
     relative
-    px-10 py-2 rounded-3xl
+    px-4 md:px-10 py-2 rounded-3xl
     whitespace-pre
 
     bg-white/5 backdrop-blur-2xl
@@ -179,14 +179,14 @@ export default function Navbar() {
           >
             <span
               className={isPastScrollyCanvas ? `
-      text-xl font-bold text-white
+      text-sm md:text-xl font-bold text-white
       font-[Cinzel]
       tracking-wider
       text-left
       block
     ` : `
       font-['Oswald'] uppercase
-      text-lg md:text-xl
+      text-[10px] sm:text-lg md:text-xl
       tracking-wider
       text-white
       drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]
@@ -207,7 +207,7 @@ export default function Navbar() {
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="text-sm font-medium text-gray-300 transition-colors hover:text-white"
+              className="text-xs md:text-sm font-medium text-gray-300 transition-colors hover:text-white"
             >
               {item}
             </a>
@@ -215,7 +215,7 @@ export default function Navbar() {
 
           <button
             onClick={() => window.open("www.linkedin.com/in/getsushilkamble Vanity URL name", "_blank")}
-            className="px-3 py-1 rounded-full bg-white text-black text-sm font-semibold transition-transform hover:scale-105 active:scale-95 whitespace-nowrap"
+            className="px-2 md:px-3 py-1 rounded-full bg-white text-black text-[10px] md:text-sm font-semibold transition-transform hover:scale-105 active:scale-95 whitespace-nowrap"
           >
             Let's Connect
           </button>

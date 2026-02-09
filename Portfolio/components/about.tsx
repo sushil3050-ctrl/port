@@ -23,13 +23,13 @@ export default function About() {
       </div>
 
       {/* Glassmorphism Content Box */}
-      <div className="relative z-10 w-full max-w-5xl p-10 md:p-20 rounded-[48px] border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.8)]">
+      <div className="relative z-10 w-full max-w-5xl p-8 md:p-20 rounded-[32px] md:rounded-[48px] border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.8)]">
         <div className="max-w-3xl">
-          <h2 className="text-5xl md:text-7xl font-bold text-white mb-10 tracking-tighter">
+          <h2 className="text-4xl md:text-7xl font-bold text-white mb-6 md:mb-10 tracking-tighter">
             About <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF9FFC] to-[#5227FF]">Me</span>
           </h2>
 
-          <div className="space-y-8 text-xl md:text-2xl text-white/70 leading-relaxed font-light">
+          <div className="space-y-6 md:space-y-8 text-lg md:text-2xl text-white/70 leading-relaxed font-light">
             <p>
               I'm a designer and developer dedicated to crafting exceptional digital experiences.
               My approach blends technical precision with artistic vision to build interfaces that aren't just functional, but unforgettable.

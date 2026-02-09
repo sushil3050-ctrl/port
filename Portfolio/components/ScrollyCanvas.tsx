@@ -52,7 +52,8 @@ export default function ScrollyCanvas({ children }: ScrollyCanvasProps) {
         const img = images[index];
         if (!img) return;
 
-        canvas.width = window.innerWidth;
+        // Use clientWidth instead of innerWidth to exclude the vertical scrollbar width
+        canvas.width = document.documentElement.clientWidth;
         canvas.height = window.innerHeight;
 
         // Draw image cover logic

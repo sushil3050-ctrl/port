@@ -23,19 +23,7 @@ export default function Projects() {
             description:
                 "ResQNet is a real-time emergency healthcare coordination platform that connects citizens, hospitals, and doctors to quickly find available beds, book ambulances, and manage urgent care when every second counts.",
             image: "/card_imgs/ResQNet.png",
-        },
-        {
-            title: "Echo Chambers",
-            category: "Interactive Art",
-            description: "Audio-reactive visual experiments ensuring deep immersion.",
-            image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop",
-        },
-        {
-            title: "Zenith",
-            category: "E-commerce",
-            description: "High-performance headless shopify storefront.",
-            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
-        },
+        }
     ];
 
     return (
@@ -49,59 +37,42 @@ export default function Projects() {
 
             <section
                 id="projects"
-                className="relative z-20 bg-[#121212] py-32 px-6 md:px-12 magic-bento-section"
+                className="relative z-20 bg-[#121212] py-16 md:py-32 px-6 md:px-12 magic-bento-section"
             >
                 <div className="max-w-7xl mx-auto">
                     <h2 className="text-4xl font-bold text-white mb-16 tracking-tight">
-                        Selected Work
+                        Selected Projects
                     </h2>
 
-                    <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8" ref={gridRef}>
                         {projects.map((project, index) => (
                             <ParticleCard
                                 key={index}
-                                className="magic-bento-card magic-bento-card--border-glow group relative h-[400px] rounded-2xl overflow-hidden"
+                                className="magic-bento-card magic-bento-card--border-glow group relative h-[320px] md:h-[400px] rounded-2xl overflow-hidden"
                                 particleCount={12}
                                 glowColor="132, 0, 255"
                                 enableTilt={true}
-                                clickEffect={true}
                                 enableMagnetism={true}
-                                style={{
-                                    backgroundColor: '#060010',
-                                    '--glow-color': 'rgb(132, 0, 255)',
-                                } as React.CSSProperties}
-
+                                clickEffect={true}
                             >
-                                {/* ================= IMAGE SPOTLIGHT ================= */}
-                                {project.image && project.image.trim() !== '' && (
+                                <div className="absolute inset-0 z-0">
                                     <Image
                                         src={project.image}
                                         alt={project.title}
                                         fill
-                                        className="
-                                            object-cover
-                                            opacity-10
-                                            group-hover:opacity-70
-                                            transition-all
-                                            duration-700
-                                            ease-out
-                                        "
+                                        className="object-cover opacity-50 group-hover:opacity-70 transition-opacity duration-500 group-hover:scale-110"
                                     />
-                                )}
-                                {/* =================================================== */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#060010] via-[#060010]/50 to-transparent" />
+                                </div>
 
-                                {/* Overlay (keeps text readable) */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black/60" />
-
-                                {/* Content */}
-                                <div className="absolute bottom-0 left-0 p-8 w-full">
+                                <div className="relative z-10 h-full flex flex-col justify-end p-8">
                                     <span className="text-sm text-blue-400 font-mono mb-2 block tracking-widest uppercase">
                                         {project.category}
                                     </span>
-                                    <h3 className="text-3xl font-bold text-white mb-2 group-hover:translate-x-2 transition-transform duration-300">
+                                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:translate-x-2 transition-transform duration-300">
                                         {project.title}
                                     </h3>
-                                    <p className="text-gray-400 max-w-sm group-hover:text-gray-200 transition-colors">
+                                    <p className="text-sm md:text-base text-gray-400 max-w-sm group-hover:text-gray-200 transition-colors">
                                         {project.description}
                                     </p>
                                 </div>
