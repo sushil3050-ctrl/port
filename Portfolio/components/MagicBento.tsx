@@ -43,11 +43,9 @@ const updateCardGlowProperties = (card: HTMLElement, mouseX: number, mouseY: num
   card.style.setProperty('--glow-radius', `${radius}px`);
 };
 
-interface ParticleCardProps {
+interface ParticleCardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
-  className?: string;
   disableAnimations?: boolean;
-  style?: React.CSSProperties;
   particleCount?: number;
   glowColor?: string;
   enableTilt?: boolean;
@@ -64,7 +62,8 @@ const ParticleCard = ({
   glowColor = DEFAULT_GLOW_COLOR,
   enableTilt = true,
   clickEffect = false,
-  enableMagnetism = false
+  enableMagnetism = false,
+  ...rest
 }: ParticleCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<HTMLElement[]>([]);
@@ -282,7 +281,12 @@ const ParticleCard = ({
   }, [animateParticles, clearAllParticles, disableAnimations, enableTilt, enableMagnetism, clickEffect, glowColor]);
 
   return (
-    <div ref={cardRef} className={`${className} particle-container`} style={{ ...style, position: 'relative', overflow: 'hidden' }}>
+    <div
+      ref={cardRef}
+      className={`${className} particle-container`}
+      style={{ ...style, position: 'relative', overflow: 'hidden' }}
+      {...rest}
+    >
       {children}
     </div>
   );

@@ -95,13 +95,11 @@
   content: '';
   position: absolute;
   inset: 0;
-  padding: 6px;
-  background: radial-gradient(
-    var(--glow-radius) circle at var(--glow-x) var(--glow-y),
-    rgba(132, 0, 255, calc(var(--glow-intensity) * 0.8)) 0%,
-    rgba(132, 0, 255, calc(var(--glow-intensity) * 0.4)) 30%,
-    transparent 60%
-  );
+  padding: 9px;
+  background: radial-gradient(var(--glow-radius) circle at var(--glow-x) var(--glow-y),
+      rgba(132, 0, 255, calc(var(--glow-intensity) * 0.8)) 0%,
+      rgba(132, 0, 255, calc(var(--glow-intensity) * 0.4)) 30%,
+      transparent 60%);
   border-radius: inherit;
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -147,7 +145,7 @@
 .particle-container:hover {
   box-shadow:
     0 4px 20px rgba(46, 24, 78, 0.2),
-    0 0 30px var(--purple-glow);
+    0 0 99px var(--purple-glow);
 }
 
 /* Global spotlight styles */
