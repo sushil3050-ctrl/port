@@ -3,9 +3,12 @@
     "version": "1.0.0",
     "description": "Bridge to the Portfolio project",
     "scripts": {
-        "dev": "npm --prefix Portfolio run dev",
-        "build": "npm --prefix Portfolio run build",
-        "start": "npm --prefix Portfolio run start",
-        "lint": "npm --prefix Portfolio run lint"
-    }
+        "dev": "cd Portfolio && npm run dev",
+        "build": "cd Portfolio && npm run build",
+        "start": "cd Portfolio && npm run start",
+        "lint": "cd Portfolio && npm run lint"
+    },
+    "workspaces": [
+        "Portfolio"
+    ]
 }
