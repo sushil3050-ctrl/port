@@ -63,15 +63,15 @@ export default function Navbar() {
           rotateY,
           transformStyle: "preserve-3d",
         }}
-        className="pointer-events-auto relative flex items-center justify-center px-1.5 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl transition-colors hover:border-white/20 w-fit max-w-[90%] sm:max-w-[95%] mx-auto gap-0"
+        className="pointer-events-auto relative flex items-center justify-center px-1.5 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl transition-colors hover:border-white/20 w-fit max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[80%] mx-auto gap-0"
       >
         {/* 3D Glass Layering */}
-        <div style={{ transform: "translateZ(10px)" }} className="flex items-center gap-2 sm:gap-4 md:gap-8 lg:gap-10 xl:gap-12 px-1 sm:px-2">
+        <div style={{ transform: "translateZ(10px)" }} className="flex items-center gap-1 sm:gap-2 md:gap-4 lg:gap-6 xl:gap-8 px-1 sm:px-2">
           {/* Title / Glass Layer */}
           <div
             style={{ transform: "translateZ(20px)" }}
             className={isPastScrollyCanvas ? `
-              px-3 sm:px-4 md:px-8 py-2 rounded-2xl sm:rounded-3xl
+              px-2 sm:px-3 md:px-4 lg:px-6 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl md:rounded-3xl
               bg-gradient-to-r from-[#0b0000] via-[#5a0000] to-[#121212]
               whitespace-pre
               text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-white
@@ -84,10 +84,10 @@ export default function Navbar() {
               border-b-4 border border-x-red-700 border-t-red-700 border-b-red-900
               text-left
               cursor-default
-              flex items-center justify-start pl-3 sm:pl-4 md:pl-6
+              flex items-center justify-start pl-2 sm:pl-3 md:pl-4
             ` : `
               relative
-              px-3 sm:px-4 md:px-8 py-2 rounded-2xl sm:rounded-3xl
+              px-2 sm:px-3 md:px-4 lg:px-6 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl md:rounded-3xl
               whitespace-pre
               bg-white/5 backdrop-blur-2xl
               border border-white/10
@@ -118,12 +118,12 @@ export default function Navbar() {
           </div>
 
           {/* Links */}
-          <div className="flex gap-2 sm:gap-4 md:gap-8 items-center">
+          <div className="flex gap-4 sm:gap-2 md:gap-4 lg:gap-6 items-center">
             {["About", "Projects", "Skills"].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-[8px] sm:text-xs md:text-sm font-medium text-gray-300 transition-colors hover:text-white"
+                className="text-[8px] sm:text-xs md:text-sm font-medium text-gray-300 transition-colors hover:text-white mx-2px"
               >
                 {item}
               </a>
