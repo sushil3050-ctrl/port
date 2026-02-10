@@ -13,6 +13,7 @@ const cinzel = Cinzel({
 export const metadata: Metadata = {
   title: "Sush!l RK | Portfolio",
   description: "Secure Full-Stack Developer Portfolio",
+  viewport: "width=device-width, initial-scale=1",
 };
 
 export default function RootLayout({

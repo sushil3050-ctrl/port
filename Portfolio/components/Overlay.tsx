@@ -12,12 +12,12 @@ export default function Overlay() {
                 initial={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
             >
-                <h1 className="text-3xl sm:text-6xl md:text-9xl font-bold mb-4 tracking-tighter">
+                <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-bold mb-4 tracking-tighter">
                     <span className="bg-gradient-to-r from-white to-red-150 bg-clip-text text-transparent">
                         I'm Sush!l RK
                     </span>
                 </h1>
-                <p className="text-lg md:text-2xl text-gray-400 font-light max-w-2xl px-6 md:px-0">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 font-light max-w-2xl px-6 md:px-0">
                     Secure Full-Stack Developer | Integrating AI/ML with Security-First Architecture
                 </p>
             </motion.div>
@@ -31,7 +31,7 @@ export default function Overlay() {
                 transition={{ duration: 0.8, ease: 'easeOut' }}
                 viewport={{ amount: 0.5 }}
             >
-                <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold max-w-full md:max-w-4xl leading-tight text-white">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold max-w-full md:max-w-4xl leading-tight text-white">
                     I Build <br />
                     <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                         digital experiences.
@@ -48,7 +48,7 @@ export default function Overlay() {
                 transition={{ duration: 0.8, ease: 'easeOut' }}
                 viewport={{ amount: 0.5 }}
             >
-                <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold max-w-full md:max-w-4xl text-right leading-tight text-white">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-bold max-w-full md:max-w-4xl text-right leading-tight text-white">
                     Bridging <br />
                     <span className="bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-500 bg-clip-text text-transparent">
                         design

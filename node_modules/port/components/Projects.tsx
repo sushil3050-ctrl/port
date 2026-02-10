@@ -37,18 +37,18 @@ export default function Projects() {
 
             <section
                 id="projects"
-                className="relative z-20 bg-[#121212] py-16 md:py-32 px-6 md:px-12 magic-bento-section"
+                className="relative z-20 bg-[#121212] py-12 sm:py-16 md:py-24 lg:py-32 px-4 sm:px-6 md:px-12 magic-bento-section"
             >
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-4xl font-bold text-white mb-16 tracking-tight">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-8 sm:mb-12 md:mb-16 tracking-tight">
                         Selected Projects
                     </h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8" ref={gridRef}>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8" ref={gridRef}>
                         {projects.map((project, index) => (
                             <ParticleCard
                                 key={index}
-                                className="magic-bento-card magic-bento-card--border-glow group relative h-[320px] md:h-[400px] rounded-2xl overflow-hidden"
+                                className="magic-bento-card magic-bento-card--border-glow group relative h-[280px] sm:h-[320px] md:h-[360px] lg:h-[400px] rounded-2xl overflow-hidden"
                                 particleCount={12}
                                 glowColor="132, 0, 255"
                                 enableTilt={true}
@@ -65,14 +65,14 @@ export default function Projects() {
                                     <div className="absolute inset-0 bg-gradient-to-t from-[#060010] via-[#060010]/50 to-transparent" />
                                 </div>
 
-                                <div className="relative z-10 h-full flex flex-col justify-end p-8">
-                                    <span className="text-sm text-blue-400 font-mono mb-2 block tracking-widest uppercase">
+                                <div className="relative z-10 h-full flex flex-col justify-end p-4 sm:p-6 md:p-8">
+                                    <span className="text-xs sm:text-sm text-blue-400 font-mono mb-2 block tracking-widest uppercase">
                                         {project.category}
                                     </span>
-                                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:translate-x-2 transition-transform duration-300">
+                                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 group-hover:translate-x-2 transition-transform duration-300">
                                         {project.title}
                                     </h3>
-                                    <p className="text-sm md:text-base text-gray-400 max-w-sm group-hover:text-gray-200 transition-colors">
+                                    <p className="text-xs sm:text-sm md:text-base text-gray-400 max-w-sm group-hover:text-gray-200 transition-colors">
                                         {project.description}
                                     </p>
                                 </div>

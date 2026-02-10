@@ -63,7 +63,7 @@ export default function Navbar() {
           rotateY,
           transformStyle: "preserve-3d",
         }}
-        className="pointer-events-auto relative flex items-center justify-center px-2 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl transition-colors hover:border-white/20 w-fit max-w-[95%] mx-auto gap-0"
+        className="pointer-events-auto relative flex items-center justify-center px-1.5 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl transition-colors hover:border-white/20 w-fit max-w-[90%] sm:max-w-[95%] mx-auto gap-0"
       >
         {/* 3D Glass Layering */}
         <div style={{ transform: "translateZ(10px)" }} className="flex items-center gap-2 sm:gap-4 md:gap-8 lg:gap-10 xl:gap-12 px-1 sm:px-2">
@@ -98,14 +98,14 @@ export default function Navbar() {
           >
             <span
               className={isPastScrollyCanvas ? `
-                text-[9px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-bold text-white
+                text-[8px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-bold text-white
                 font-[Cinzel]
                 tracking-wider
                 text-left
                 block
               ` : `
                 font-['Oswald'] uppercase
-                text-[9px] sm:text-xs md:text-base lg:text-lg xl:text-xl
+                text-[8px] sm:text-xs md:text-base lg:text-lg xl:text-xl
                 tracking-wider
                 text-white
                 drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]
@@ -118,12 +118,12 @@ export default function Navbar() {
           </div>
 
           {/* Links */}
-          <div className="flex gap-3 sm:gap-6 md:gap-8 items-center">
+          <div className="flex gap-2 sm:gap-4 md:gap-8 items-center">
             {["About", "Projects", "Skills"].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-[9px] sm:text-xs md:text-sm font-medium text-gray-300 transition-colors hover:text-white"
+                className="text-[8px] sm:text-xs md:text-sm font-medium text-gray-300 transition-colors hover:text-white"
               >
                 {item}
               </a>
