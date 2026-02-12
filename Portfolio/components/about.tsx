@@ -31,13 +31,10 @@ export default function About() {
 
           <div className="space-y-4 sm:space-y-6 md:space-y-8 text-base sm:text-lg md:text-xl lg:text-2xl text-white/70 leading-relaxed font-light">
             <p>
-              I'm a designer and developer dedicated to crafting exceptional digital experiences.
-              My approach blends technical precision with artistic vision to build interfaces that aren't just functional, but unforgettable.
+              I’m a Computer Engineering student and developer passionate about crafting exceptional digital experiences. I combine technical precision with creative vision to design interfaces that are not only functional but memorable.
             </p>
             <p>
-              Specializing in motion design and high-end web development, I leverage modern tools
-              to bring static designs to life. I believe every pixel counts and every interaction
-              is an opportunity to delight.
+              Computer Engineering student | Developer | Exploring motion design, web development, cybersecurity, and machine learning to craft memorable digital experiences
             </p>
           </div>
 

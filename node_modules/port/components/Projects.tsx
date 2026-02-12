@@ -19,11 +19,11 @@ export default function Projects() {
         },
         {
             title: "ResQNet",
-            category: "Web App",
+            category: "Web App (Under Security Testing for Hackathon) — [View Documentation]",
             description:
                 "ResQNet is a real-time emergency healthcare coordination platform that connects citizens, hospitals, and doctors to quickly find available beds, book ambulances, and manage urgent care when every second counts.",
             image: "/card_imgs/ResQNet.png",
-            link: null
+            link: "https://github.com/sushil3050-ctrl/ResQNet.git"
         },
         {
             title: "Class Check",
