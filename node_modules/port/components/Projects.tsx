@@ -8,7 +8,6 @@ import FlowingMenuSection from './FlowingMenuSection';
 export default function Projects() {
     const gridRef = useRef<HTMLDivElement>(null);
 
-
     const projects = [
         {
             title: "Sales Analysis & Forecasting",
@@ -16,6 +15,7 @@ export default function Projects() {
             description:
                 "A professional desktop application for analyzing historical sales data and forecasting future sales with an intuitive GUI. Built with Python and Tkinter, the app provides comprehensive sales insights and predictive analytics using advanced time series forecasting.",
             image: "/card_imgs/Sales.png",
+            link: "https://github.com/sushil3050-ctrl/Sales-Analysis-Project.git"
         },
         {
             title: "ResQNet",
@@ -23,8 +23,30 @@ export default function Projects() {
             description:
                 "ResQNet is a real-time emergency healthcare coordination platform that connects citizens, hospitals, and doctors to quickly find available beds, book ambulances, and manage urgent care when every second counts.",
             image: "/card_imgs/ResQNet.png",
+            link: null
+        },
+        {
+            title: "Class Check",
+            category: "Web App [OFFLINE]",
+            description:
+                "Class Check is a web app that helps students track attendance, calculate percentages, visualize progress, and stay above required thresholds, all in a simple, intuitive, and signup-free interface.",
+            image: "/card_imgs/Class Check.png",
+            link: "https://class-check-sushilrk.vercel.app/"
+        },
+        {
+            title: "Money Trail",
+            category: "Web App [OFFLINE]",
+            description: "Money Trail is a personal finance web app to track expenses, record transactions with categories and dates, and visualize spending via charts—helping users better understand and manage their money",
+            image: "/card_imgs/Money Trail.png",
+            link: "https://moneytrail-sushilrk.vercel.app/"
         }
     ];
+
+    const handleCardClick = (link: string | null) => {
+        if (link) {
+            window.open(link, '_blank');
+        }
+    };
 
     return (
         <>
@@ -48,12 +70,13 @@ export default function Projects() {
                         {projects.map((project, index) => (
                             <ParticleCard
                                 key={index}
-                                className="magic-bento-card magic-bento-card--border-glow group relative h-[280px] sm:h-[320px] md:h-[360px] lg:h-[400px] rounded-2xl overflow-hidden"
+                                className="magic-bento-card magic-bento-card--border-glow group relative h-[280px] sm:h-[320px] md:h-[360px] lg:h-[400px] rounded-2xl overflow-hidden cursor-pointer"
                                 particleCount={12}
                                 glowColor="132, 0, 255"
                                 enableTilt={true}
                                 enableMagnetism={true}
                                 clickEffect={true}
+                                onClick={() => handleCardClick(project.link)}
                             >
                                 <div className="absolute inset-0 z-0">
                                     <Image
