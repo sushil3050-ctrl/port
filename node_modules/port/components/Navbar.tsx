@@ -1,19 +1,20 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, useScroll, useMotionValueEvent } from 'framer-motion';
 
 export default function Navbar() {
   const [isHovered, setIsHovered] = useState(false);
   const [isPastScrollyCanvas, setIsPastScrollyCanvas] = useState(false);
-  const [scrollyCanvasEl, setScrollyCanvasEl] = useState<HTMLElement | null>(null);
+  const scrollyCanvasRef = useRef<HTMLElement | null>(null);
+  const [isPastCanvasState, setIsPastCanvasState] = useState(false);
 
   useEffect(() => {
-    setScrollyCanvasEl(document.querySelector('.scrolly-canvas-container') as HTMLElement);
+    scrollyCanvasRef.current = document.querySelector('.scrolly-canvas-container') as HTMLElement;
   }, []);
 
   const { scrollYProgress: localScrollYProgress } = useScroll({
-    target: scrollyCanvasEl ? { current: scrollyCanvasEl } as any : undefined,
+    target: scrollyCanvasRef,
     offset: ["start start", "end end"]
   });
 
@@ -27,11 +28,12 @@ export default function Navbar() {
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
 
   useMotionValueEvent(localScrollYProgress, 'change', (latest) => {
-    const sequenceReady = scrollyCanvasEl?.dataset?.sequenceLoaded === 'true';
-    if (scrollyCanvasEl && sequenceReady) {
-      const sectionEnd = scrollyCanvasEl.offsetTop + scrollyCanvasEl.offsetHeight - window.innerHeight;
+    const el = scrollyCanvasRef.current;
+    const sequenceReady = el?.dataset?.sequenceLoaded === 'true';
+    if (el && sequenceReady) {
+      const sectionEnd = el.offsetTop + el.offsetHeight - window.innerHeight;
       setIsPastScrollyCanvas(window.scrollY > sectionEnd);
-    } else if (!scrollyCanvasEl) {
+    } else if (!el) {
       setIsPastScrollyCanvas(latest > 0.99);
     } else {
       setIsPastScrollyCanvas(false);
@@ -135,7 +137,7 @@ export default function Navbar() {
             onClick={() => window.open("https://www.linkedin.com/in/getsushilkamble", "_blank")}
             className="px-2 sm:px-3 py-1 rounded-full bg-white text-black text-[9px] sm:text-xs md:text-sm font-semibold transition-transform hover:scale-105 active:scale-95 whitespace-nowrap"
           >
-            Let's Connect
+            Let&apos;s Connect
           </button>
         </div>
 

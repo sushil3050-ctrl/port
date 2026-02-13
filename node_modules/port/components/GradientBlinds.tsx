@@ -63,13 +63,13 @@ const GradientBlinds = ({
 }: GradientBlindsProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number | null>(null);
-  const programRef = useRef<any>(null);
-  const meshRef = useRef<any>(null);
-  const geometryRef = useRef<any>(null);
-  const rendererRef = useRef<any>(null);
+  const programRef = useRef<Program>(null);
+  const meshRef = useRef<Mesh>(null);
+  const geometryRef = useRef<Triangle>(null);
+  const rendererRef = useRef<Renderer>(null);
   const mouseTargetRef = useRef<[number, number]>([0, 0]);
   const lastTimeRef = useRef(0);
-  const uniformsRef = useRef<any>(null);
+  const uniformsRef = useRef<Record<string, { value: unknown }>>(null);
 
   // Initialize OGL once
   useEffect(() => {
@@ -268,7 +268,7 @@ void main() {
           let factor = 1 - Math.exp(-dt / tau);
           if (factor > 1) factor = 1;
           const target = mouseTargetRef.current;
-          const cur = uniformsRef.current.iMouse.value;
+          const cur = uniformsRef.current.iMouse.value as [number, number];
           cur[0] += (target[0] - cur[0]) * factor;
           cur[1] += (target[1] - cur[1]) * factor;
         } else {
@@ -302,7 +302,7 @@ void main() {
       }
       if (programRef.current) programRef.current.remove();
       if (geometryRef.current) geometryRef.current.remove();
-      if (rendererRef.current) rendererRef.current.destroy();
+      if (rendererRef.current) rendererRef.current = null;
     };
   }, [dpr]);
 
@@ -349,7 +349,7 @@ void main() {
       className={`gradient-blinds-container ${className || ''}`}
       style={{
         ...(mixBlendMode && {
-          mixBlendMode: mixBlendMode as any
+          mixBlendMode: mixBlendMode as React.CSSProperties['mixBlendMode']
         })
       }}
     />
